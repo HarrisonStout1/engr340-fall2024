@@ -10,10 +10,10 @@ std = 1.2
 num_samples = 10
 
 # Step 2: use normal to generate distribution samples
-samples = None #edit this line
+samples = random.normal(num_samples)
 
 # Step 3: use mean() to determine the average of those samples
-measured_mean = -1 #edit this line
+mean_error = -1 #edit this line
 
 # Step 4: use std() to determine the standard deviation of samples
 measured_deviation = -1 #edit this line
@@ -24,7 +24,7 @@ print("mu=", measured_mean, "stdev=", measured_deviation)
 mean_error = abs(mu - measured_mean)
 deviation_error = abs(std - measured_deviation)
 
-if measured_mean < 1E-3 and deviation_error < 1E-3:
+if mean_error < 1E-3 and deviation_error < 1E-3:
     print('Solution within error tolerances')
 else:
     print('Solution is not within error tolerances')

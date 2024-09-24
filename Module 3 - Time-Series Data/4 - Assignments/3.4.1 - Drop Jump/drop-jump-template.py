@@ -60,8 +60,7 @@ def main(full_path_to_file):
         # if signal is rising
         if value > baseline + delta:
             # mark this index as the landing point
-
-            ### your code here ###
+            First_landing = index
 
             # break out of the loop to end iterating
             break

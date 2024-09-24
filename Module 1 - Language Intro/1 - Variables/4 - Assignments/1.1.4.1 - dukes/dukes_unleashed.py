@@ -8,8 +8,14 @@ Note: this problem does not require the "compounding interest" formula from the 
 
 """
 
-### Your code here ###
+in_state_cost = 30792  # dollars
+out_state_cost = 47882  # dollars
+interest_rate = 0.05
 
-in_state_gift = 0
 
-out_state_gift = 0
+def calculate_gift(cost, interest):
+    return cost / interest
+
+
+in_state_gift = calculate_gift(in_state_cost, interest_rate)
+out_state_gift = calculate_gift(out_state_cost, interest_rate)

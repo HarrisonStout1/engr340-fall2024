@@ -9,7 +9,8 @@ Dr. Forsyth's Code. Do Not Modify.
 """
 # bring in randomness because we need it in our lives
 import random
-import numpy as np
+import numpy
+
 
 # randomly sample a distribution between 20 and 100
 random_length = int(random.uniform(20, 100))
