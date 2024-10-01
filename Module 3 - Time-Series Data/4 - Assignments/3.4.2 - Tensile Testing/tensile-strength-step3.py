@@ -60,10 +60,15 @@ def calculate_stress(force, sample_diameter):
     :return: An array of stresses experienced by the sample in Kilo Pascals (MPa)
     """
 
-    ### YOUR SOLUTION FROM STEP 1 TEMPLATE HERE ###
+    # calculate the cross-section area (mm^2)
+    CA = np.pi*(sample_diameter/2)**2
 
-    return None
+    # calculate stress (MPa) from load (kN) and cross-sectional area
 
+    # delete this line and replace it with your own
+    stress = force/CA
+
+    return stress
 
 def calculate_max_strength_strain(strain, stress):
     """
@@ -75,9 +80,16 @@ def calculate_max_strength_strain(strain, stress):
     Fracture Strain: the maximum strain experienced before fracture
     """
 
-    ### YOUR SOLUTION FROM STEP 2 TEMPLATE HERE ###
+    # calculate the maximum stress experienced
+    ultimate_tensile_stress = max(stress)
 
-    return -1, -1
+    # calculate the maximum strain experienced
+    fracture_strain = max(strain)
+
+    return ultimate_tensile_stress, fracture_strain
+
+
+
 
 def calculate_elastic_modulus(strain, stress):
     """
@@ -92,21 +104,25 @@ def calculate_elastic_modulus(strain, stress):
     """
 
     # dummy variables the function should over write
-    linear_index = None
-    slope = None
-    intercept = None
 
-    # Step 3a: find the point that is 40% of peak stress
-    # use from 0 to that value to create a linear plot
+
+    fourty = 0.4 * max(stress)
+    print(stress)
+    new_stress = abs(stress - fourty)
+    location = np.argmin(new_stress)
+    linear_index = location
+    stress_spliced = stress[0:location]
+    strain_spliced = strain[0:location]
+    slopes = stress_spliced / strain_spliced
+    slope, intercept = np.polyfit(strain_spliced,stress_spliced,1)
+
 
     ### your code below ###
-    secant_strain = -1
+
 
     # Step 3b: find the intersection between 40% line and the curvey
     # take the abs() difference between the stress vector and secant_straint point
 
-    ### your code below ###
-    diffs = -1
 
     # use np.argmin() to find the minimum of the diffs array.
     # this will be the INDEX of the point in stress-strain that is closest to

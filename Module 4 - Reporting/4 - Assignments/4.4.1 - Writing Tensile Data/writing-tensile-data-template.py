@@ -14,10 +14,11 @@ def generate_csv_file(filename, results):
     # Step 1: create a variable to hold the file name
 
     # uncomment this line
-    # output_file_name = ### your code here ###
+    output_file_name = filename
 
     # Step 2: use open() to open the file in write mode. Set the return of open()
     # to a variable name that will be your file handle
+    file = open(output_file_name,'w')
 
     # uncomment the line below
     # file = ### your code here ###
@@ -27,7 +28,7 @@ def generate_csv_file(filename, results):
     file_header = "Sample_Name,Material_Type,Tensile_Strength,Fracture_Strain,Elastic_Modulus,Yield_Strength\n"
 
     # write header string out to file
-    # file.### your code here ###
+    file.write(file_header)
 
     # Step 4: Iterate through the list of results. Each sample will contain the data for an individual test
     # The Materials Object will contain sample name, type, tensile strength, fracture strain, elastic modulus,
@@ -48,15 +49,16 @@ def generate_csv_file(filename, results):
         # Make sure an endline character '\n' is always at the end of your string!
 
         # uncomment the line below
-        # string_to_write = ### your code here ###
 
+        string_to_write = str(name) + "," + str(material_type) + "," + str(tensile_strength) + "," + str(fracture_strain) + "," + str(modulus) + "," + str(yield_strength) + "\n"
+        file.write(string_to_write)
         # Finally, given that long string, write it to a file
 
         ### your code here ###
 
     # close the file once all writing is complete
     # uncomment this line before you're done
-    ##file.close()
+    file.close()
 
     # since we got here, it must have worked.
     return True
