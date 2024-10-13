@@ -2,7 +2,6 @@ from writing_tensile_utils import *
 import os
 import sys
 
-
 def generate_csv_file(filename, results):
     """
     A function to take a list of material strength results and print to a CSV file
