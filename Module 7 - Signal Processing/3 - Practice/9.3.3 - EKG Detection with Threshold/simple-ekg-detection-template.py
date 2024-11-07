@@ -32,13 +32,13 @@ Adjust the values for threshold and timeout to change the detection method/appro
 """
 
 # set a detection threshold (YOUR VALUE BELOW)
-detection_threshold = -1
+detection_threshold = 1
 
 # set a heart beat time out (YOUR VALUE BELOW)
-detection_time_out = -1
+detection_time_out = 50
 
 # track the last time we found a beat
-last_detected_index = -1
+last_detected_index = []
 
 # keep not of where we are in the data
 current_index = 0
@@ -51,9 +51,11 @@ Step 4: Manually iterate through the signal and apply the threshold with timeout
 """
 
 # loop through signal finding beats
-for value in signal:
+while current_index < len(signal):
     ## Use a conditional statement to see if the signal is above a threshold...
-
+    if signal[current_index] > detection_threshold:
+        beats_detected.append(current_index)
+        current_index += detection_time_out
     ## Once an index is found, place the index in the beats_detected list
     current_index += 1
 
